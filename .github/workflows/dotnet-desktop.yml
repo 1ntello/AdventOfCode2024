@@ -56,8 +56,8 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: AdventOfCode-2024/AdventOfCode-2024.sln   
-      Test_Project_Path: AdventOfCode-2024.Test/AdventOfCode-2024.Test.csproj         
+      Solution_Name: AdventOfCode-2024.sln   
+      Test_Project_Path: AdventOfCode-2024.Test\AdventOfCode-2024.Test.csproj         
 
     steps:
     - name: Checkout
