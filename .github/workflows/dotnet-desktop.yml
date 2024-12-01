@@ -80,6 +80,6 @@ jobs:
     - name: Execute unit tests
       run: dotnet test
 
-  defaults:
+    defaults:
       run:
         working-directory: AdventOfCode-2024
