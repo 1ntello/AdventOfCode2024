@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode_2024.Challenges
+﻿using AdventOfCode.CrossCuttingConcerns;
+
+namespace AdventOfCode_2024.Challenges
 {
     public class Challenge1 : IChallenge
     {
@@ -19,7 +21,7 @@
             int totalDistances = 0;
             for(int i = 0; i < leftNumbers.Count; i++)
             {
-                totalDistances += Math.Abs(leftNumbers[i] - rightNumbers[i]);
+                totalDistances += NumberHelpers.DifferenceBetweenNumbers(leftNumbers[i], rightNumbers[i]);
             }
             return totalDistances.ToString();
         }
