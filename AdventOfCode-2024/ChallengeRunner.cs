@@ -21,6 +21,9 @@ namespace AdventOfCode_2024
                 case 1:
                     challenge = new Challenge1();
                     break;
+                case 2:
+                    challenge = new Challenge2();
+                    break;
                 default:
                     break;
 
