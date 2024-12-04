@@ -8,7 +8,6 @@ var challengeNumber = Console.ReadLine();
 try
 {
     int challengeNo = int.Parse(challengeNumber!);
-
     Console.WriteLine($"Running challenge {challengeNumber}");
     ChallengeRunner.RunChallenge(challengeNo);
     Console.ReadKey();
