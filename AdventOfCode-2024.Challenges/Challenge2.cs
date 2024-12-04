@@ -84,7 +84,6 @@ namespace AdventOfCode_2024.Challenges
             return safe;
         }
 
-       
 
         private bool IsComparisonSafe(int p1, int p2, bool increasingMode)
         {

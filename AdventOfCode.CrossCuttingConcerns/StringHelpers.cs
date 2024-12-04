@@ -32,5 +32,19 @@ namespace AdventOfCode.CrossCuttingConcerns
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+        public static Dictionary<Point, char> ParseStringsIntoGridDictionary(string[] lines)
+        {
+            Dictionary<Point, char> dict = new Dictionary<Point, char>();
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string line = lines[i];
+                for (int j = 0; j < line.Length; j++)
+                {
+                    // I know weird but i is the Y because its the line number, sue me. 
+                    dict.Add(new Point(j, i), line[j]);
+                }
+            }
+            return dict;
+        }
     }
 }

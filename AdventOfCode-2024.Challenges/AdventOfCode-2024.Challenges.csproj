@@ -8,11 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
+    <ProjectReference Include="..\AdventOfCode.CrossCuttingConcerns\AdventOfCode.CrossCuttingConcerns.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AdventOfCode.CrossCuttingConcerns\AdventOfCode.CrossCuttingConcerns.csproj" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
 
 </Project>
