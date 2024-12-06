@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Inputs\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\AdventOfCode-2024.Challenges\AdventOfCode-2024.Challenges.csproj" />
   </ItemGroup>
 
@@ -27,6 +23,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Inputs\Challenge4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Inputs\Challenge5.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

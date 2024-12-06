@@ -30,6 +30,9 @@ namespace AdventOfCode_2024
                 case 4:
                     challenge = new Challenge4();
                     break;
+                case 5:
+                    challenge = new Challenge5();
+                    break;
                 default:
                     break;
 

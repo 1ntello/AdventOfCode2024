@@ -11,8 +11,4 @@
     <ProjectReference Include="..\AdventOfCode.CrossCuttingConcerns\AdventOfCode.CrossCuttingConcerns.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
-
 </Project>
