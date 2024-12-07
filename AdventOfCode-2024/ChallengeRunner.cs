@@ -38,8 +38,13 @@ namespace AdventOfCode_2024
 
             };
 
+            Console.WriteLine($"Running Challenge {challenge.GetType().ToString()} part 1");
+            Console.WriteLine($"---------------------------------------------------------");
             Console.WriteLine(challenge?.ChallengePart1(input));
+            Console.WriteLine($"---------------------------------------------------------");
+            Console.WriteLine($"Running Challenge {challenge.GetType().ToString()} part 2");
             Console.WriteLine(challenge?.ChallengePart2(input));
+            Console.WriteLine($"---------------------------------------------------------");
         }
 
     }

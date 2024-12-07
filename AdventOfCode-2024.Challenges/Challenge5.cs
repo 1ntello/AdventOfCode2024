@@ -50,11 +50,7 @@ namespace AdventOfCode_2024.Challenges
             {
                 StringHelpers.PrintColoredLine(p, ConsoleColor.Red);
                 string deepCopy = p;
-                while (!IsPageInOrder(deepCopy, pagePairInstructions))
-                {
-                    deepCopy = FixPage(deepCopy, pagePairInstructions);
-
-                }
+                deepCopy = FixPage(deepCopy, pagePairInstructions);
                 StringHelpers.PrintColoredLine(deepCopy, ConsoleColor.Green);
                 total += GetMiddlePageNumber(deepCopy);
             }
