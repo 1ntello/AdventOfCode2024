@@ -53,12 +53,12 @@ namespace AdventOfCode_2024.Test
             Assert.That(result, Is.EqualTo("143"));
         }
 
-        //[Test]
-        //public void Challenge5_Part2()
-        //{
-        //    Challenge5 challenge = new Challenge5();
-        //    var result = challenge.ChallengePart2(input);
-        //    Assert.That(result == "9");
-        //}
+        [Test]
+        public void Challenge5_Part2()
+        {
+            Challenge5 challenge = new Challenge5();
+            var result = challenge.ChallengePart2(input);
+            Assert.That(result == "123");
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using AdventOfCode_2024.Challenges.Helpers;
+﻿using AdventOfCode.CrossCuttingConcerns;
+using AdventOfCode_2024.Challenges.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,69 @@ namespace AdventOfCode_2024.Challenges
 
         public string ChallengePart2(string[] input)
         {
-            throw new NotImplementedException();
+            var inputList = input.Where(x => x != "").ToList();
+            // do recursive while still not valid
+            // first we have to split instructions and updates
+            var instructions = inputList.Where(x => x.Contains("|")).ToList();
+            var pages = inputList.Except(instructions).ToList();
+            var pagePairInstructions = GetPagePairs(instructions);
+
+            List<string> invalidPages = new List<string>();
+
+            foreach (var p in pages)
+            {
+                if (!IsPageInOrder(p, pagePairInstructions))
+                    invalidPages.Add(p);
+            }
+            int total = 0;
+            foreach (var p in invalidPages)
+            {
+                StringHelpers.PrintColoredLine(p, ConsoleColor.Red);
+                string deepCopy = p;
+                while (!IsPageInOrder(deepCopy, pagePairInstructions))
+                {
+                    deepCopy = FixPage(deepCopy, pagePairInstructions);
+
+                }
+                StringHelpers.PrintColoredLine(deepCopy, ConsoleColor.Green);
+                total += GetMiddlePageNumber(deepCopy);
+            }
+            return total.ToString();
+        }
+
+        public string FixPage(string page, List<PagePair> instructions)
+        {
+            var convertedList = page.Split(',').Select(x => int.Parse(x)).ToList();
+            bool valid = true;
+            int steps = 0;
+            for (int i = 0; i < convertedList.Count(); i++)
+            {
+                // we have to check the numbers against all other numbers except itself. 
+                // with I we know the location against all others 
+                for (int j = 0; j < convertedList.Count(); j++)
+                {
+                    if (j == i)
+                        continue;
+                    else if (j < i) // it has to be before so i has to be on the right side
+                    {
+                        valid = instructions.Where(x => x.PageNumber1 == convertedList[j] && x.PageNumber2 == convertedList[i]).Any();
+                    }
+                    else if (j > i) // it has to be after so i has to be on the right side 
+                    {
+                        valid = instructions.Where(x => x.PageNumber1 == convertedList[i] && x.PageNumber2 == convertedList[j]).Any();
+                    }
+                    if (!valid)
+                    {
+                        int number1 = convertedList[i];
+                        int number2 = convertedList[j];
+                        convertedList[i] = number2;
+                        convertedList[j] = number1;
+                        StringHelpers.PrintColoredLine($"Step: {steps }: {string.Join(",", convertedList)}", ConsoleColor.Blue);
+                        steps++;
+                    }
+                }
+            }
+            return string.Join(",", convertedList);
         }
 
         public List<PagePair> GetPagePairs(List<string> input)
@@ -50,7 +113,6 @@ namespace AdventOfCode_2024.Challenges
             int middlePageNumber = convertedList[convertedList.Count / 2];
             return middlePageNumber;
         }
-
 
         public bool IsPageInOrder(string page, List<PagePair> instructions)
         {
